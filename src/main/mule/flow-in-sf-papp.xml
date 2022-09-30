@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="flow-in-sf" doc:id="e80023a7-8b83-4821-9d87-1775916c3391" initialState="started" maxConcurrency="1">
+		<scheduler doc:name="Scheduler" doc:id="6ee8ad5b-adfa-4373-a96d-8cc9712f0e7f" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="${schedular.freequency}" timeUnit="MINUTES"/>
+			</scheduling-strategy>
+		</scheduler>
+		<ee:transform doc:name="query" doc:id="32525a21-6c1d-421d-b2a2-ef39d9f70ca2" >
+			<ee:message >
+			</ee:message>
+			<ee:variables >
+				<ee:set-variable variableName="query" ><![CDATA[%dw 2.0
+output application/java
+---
+"SELECT Name,Site,BillingState FROM Account"
+]]></ee:set-variable>
+			</ee:variables>
+		</ee:transform>
+		<salesforce:query doc:name="Retrieve Account details" doc:id="5e093fdb-6dc2-4205-9f58-d8ef69a13a95" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query ><![CDATA[#[vars.query as String]]]></salesforce:salesforce-query>
+		</salesforce:query>
+		<logger level="INFO" doc:name="Log INFO" doc:id="35c67cfa-3ae6-49c0-9061-cfb6f99f0204" message='#["log of Number of records retrieved from salesforce :"++ sizeOf(payload)]' category="flow-in-sf"/>
+	</flow>
+</mule>
