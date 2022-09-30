@@ -35,9 +35,9 @@
                                  <muleVersion>4.3.0-20220321</muleVersion>
                                    <username>${username}</username>
                                     <password>${password}</password>
-                                   <applicationName>affirm-in-sf-papp</applicationName>
-                                <environment>Sandbox</environment>         
-                                <workerType>Micro</workerType>  
+                                   <applicationName>${applicationName}</applicationName>
+                                <environment>${environment}</environment>         
+                                <workerType>${workerType}</workerType>  
                                 <objectStoreV2>true</objectStoreV2>                                                                                              
                         </cloudHubDeployment>
                      </configuration>
