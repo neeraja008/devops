@@ -1,0 +1,16 @@
+scheduler:
+    frequency: "5"
+    delay: "0" 
+  
+api:
+  path: "/testnew"  
+  
+salesforce:
+    userName: "neerumulesoft@gmail.com" 
+    securityToken: "XgjMK5xZUxl32i450XtyQ76jf"
+    url: "https://login.salesforce.com/services/Soap/u/54.0"
+    
+env:
+  "dev"    
+    
+  
