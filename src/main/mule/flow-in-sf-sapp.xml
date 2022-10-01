@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="flow-in-sf-sapp" doc:id="bda6d120-9131-4b69-848c-275eb4159ae0" initialState="started" maxConcurrency="1">
+		<http:listener doc:name="GET /${api.path}" doc:id="fbc2e3e1-75e0-44e9-8849-1b90f1f2965a" config-ref="HTTP_Listener_config" path="${api.path}"/>
+		<salesforce:query doc:name="Retrieve Account" doc:id="1194248f-a787-4261-adec-313bdec1b431" config-ref="Salesforce_Config">
+			<salesforce:salesforce-query ><![CDATA[#[attributes.headers.query] ]]></salesforce:salesforce-query>
+		</salesforce:query>
+		<ee:transform doc:name="Response payload form salesforce" doc:id="81117793-7495-4300-ab3b-d4534d5039a9" >
+			<ee:message >
+				<ee:set-payload resource="dwlscripts/responsepayload.dwl" />
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Log INFO Success" doc:id="f99caecb-82a1-4f14-b39a-7f523f8d30ed" message='#["Number of records logged from salesforce :"++ sizeOf(payload)]' category="affirm-in-sf-sapp"/>
+	</flow>
+</mule>

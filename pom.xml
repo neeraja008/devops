@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>affirm-in-onprem-papp</artifactId>
+	<artifactId>affirm-in-sf-sapp</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>affirm-in-sf-papp</name>
+	<name>affirm-in-sf-sapp</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,6 +29,18 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+                       <cloudHubDeployment>
+                                <uri>https://anypoint.mulesoft.com</uri>
+                                 <muleVersion>4.3.0</muleVersion>
+                                   <username>${username}</username>
+                                    <password>${password}</password>
+                                   <applicationName>affirm-in-sf-sapp</applicationName>
+                                <environment>Sandbox</environment>         
+                                <workerType>Micro</workerType>  
+                                <objectStoreV2>true</objectStoreV2>                                                                                              
+                        </cloudHubDeployment>
+                     </configuration>
 			</plugin>
 		</plugins>
 	</build>

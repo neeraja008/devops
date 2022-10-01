@@ -6,14 +6,17 @@
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
 http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
-	<configuration-properties doc:name="Configuration properties" doc:id="57c0f5be-cef9-4be5-9198-880c7b6b80f0" file="config\dev.yaml" />
-	<global-property doc:name="Global Property" doc:id="7574d214-9ea5-4470-bdfc-23cada92fff3" name="env" value="dev" />
-	<salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="5955dc0c-b20d-4b81-9dfa-cb3258375f31" >
-		<salesforce:basic-connection username="${salesforce.userName}" password="${secure::salesforce.password}" securityToken="${salesforce.securityToken}" url="${salesforce.url}" />
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="698b7143-7149-49b9-bf7b-983a5c9c75d1" >
+		<http:listener-connection host="${http.host}" port="${http.port}"/>
+	</http:listener-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="1d4b5c0f-e047-4786-944e-8fd6f2b902df" file="config\${env}.yaml" />
+	<global-property doc:name="Global Property" doc:id="33b63af2-fdaf-431c-a338-4ce2c1fd758c" name="env" value="dev" />
+	<salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="52cc62f3-c838-4ed1-827f-9f4c210b5753" >
+		<salesforce:basic-connection username="${salesforce.userName}" password="${secure::salesforce.password}" securityToken="${salesforce.securitytoken}" url="${salesforce.url}" />
 	</salesforce:sfdc-config>
-	<configuration-properties doc:name="Configuration properties" doc:id="a4b0c050-5912-4ab1-aba5-5cff417ac687" file="configsecure\dev-secure.yaml" />
-	<global-property doc:name="Global Property" doc:id="52cdbdd7-3a82-4155-ab79-e47a050a8973" name="secret.key" value="1234567890123456" />
-	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="d7162ffa-2115-4daf-9d44-e444c81bd451" file="configsecure\dev-secure.yaml" key="${secret.key}" >
+	<configuration-properties doc:name="Configuration properties" doc:id="a6c5ce65-835d-47e3-b5fa-af39f892bf43" file="configsecure\${env}-secure.yaml" />
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="32ebcb8c-4b58-487c-88a5-927f380cd2c4" file="configsecure\${env}-secure.yaml" key="${secret.key}" >
 		<secure-properties:encrypt algorithm="Blowfish" />
 	</secure-properties:config>
+	<global-property doc:name="Global Property" doc:id="937bd659-0798-42c3-b928-cedfd7861614" name="secret.key" value="placeholder" />
 </mule>

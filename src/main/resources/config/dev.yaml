@@ -1,16 +1,15 @@
-scheduler:
-    frequency: "5"
-    delay: "0" 
+http:
+  host: "0.0.0.0"
+  port: "8081"
   
-api:
-  path: "/testnew"  
+api: 
+  path: "/test" 
+
+env:
+  "dev"  
   
 salesforce:
-    userName: "neerumulesoft@gmail.com" 
-    securityToken: "XgjMK5xZUxl32i450XtyQ76jf"
-    url: "https://login.salesforce.com/services/Soap/u/54.0"
-    
-env:
-  "dev"    
-    
-  
+  userName: "neerumulesoft@gmail.com" 
+  securitytoken: "XgjMK5xZUxl32i450XtyQ76jf"
+  url: "https://login.salesforce.com/services/Soap/u/54.0"  
+   
