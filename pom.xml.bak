@@ -34,7 +34,19 @@
 			<version>3.3.5</version>
 
 
-				
+				<extensions>true</extensions>
+				<configuration>
+                       <cloudHubDeployment>
+                                <uri>https://anypoint.mulesoft.com</uri>
+                                 <muleVersion>4.3.0</muleVersion>
+                                   <username>${username}</username>
+                                    <password>${password}</password>
+                                   <applicationName>affirm-in-sf-sapp</applicationName>
+                                <environment>Sandbox</environment>         
+                                <workerType>Micro</workerType>  
+                                <objectStoreV2>true</objectStoreV2>                                                                                              
+                        </cloudHubDeployment>
+                     </configuration>
 			</plugin>
 		</plugins>
 	</build>
