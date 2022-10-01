@@ -14,7 +14,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.3.0-20220321</app.runtime>
-		<mule.maven.plugin.version>3.7.2</mule.maven.plugin.version>
+		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 	</properties>
 
 	<build>
@@ -32,14 +32,14 @@
 				<configuration>
                        <cloudHubDeployment>
                                 <uri>https://anypoint.mulesoft.com</uri>
-                                 <muleVersion>4.3.0</muleVersion>
-                                   <username>golim008</username>
-                                    <password>Keerthi@008</password>
-                                   <applicationName>affirm-in-sf-sapp</applicationName>
-                                   <businessGroup>apisero</businessGroup>
-                                <environment>Sandbox</environment> 
-                                <workers>1</workers>        
-                                <workerType>Micro</workerType>  
+                                 <muleVersion>${mule.version}</muleVersion>
+                                   <username>${username}</username>
+                                    <password>${password}</password>
+                                   <applicationName>${appname}</applicationName>
+                                   <businessGroup>${business}</businessGroup>
+                                <environment>${environment}</environment> 
+                                <workers>${workers}</workers>        
+                                <workerType>${vCore}</workerType>  
                                 <objectStoreV2>true</objectStoreV2>                                                                                              
                         </cloudHubDeployment>
                      </configuration>
