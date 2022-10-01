@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>affirm-in-onprem-papp</artifactId>
+	<artifactId>affirm-in-cicd-sapp</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>affirm-in-sf-papp</name>
+	<name>affirm-in-cicd-sapp</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,8 +29,21 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
-			</plugin>
-		</plugins>
+				<configuration>
+                       <cloudHubDeployment>
+                                <uri>https://anypoint.mulesoft.com</uri>
+                                 <muleVersion>4.3.0</muleVersion>
+                                   <username>golim008</username>
+                                    <password>Keerthi@008</password>
+                                   <applicationName>affirm-in-sf-sapp</applicationName>
+                                <environment>Sandbox</environment>         
+                                <workerType>Micro</workerType>  
+                                <objectStoreV2>true</objectStoreV2>                                                                                              
+                        </cloudHubDeployment>
+                     </configuration>
+				</plugin>
+				
+			</plugins>
 	</build>
 
 	<dependencies>
@@ -47,15 +60,9 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>com.mulesoft.connectors</groupId>
-			<artifactId>mule-salesforce-connector</artifactId>
-			<version>10.14.3</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.modules</groupId>
-			<artifactId>mule-secure-configuration-property-module</artifactId>
-			<version>1.2.3</version>
+			<groupId>org.mule.connectors</groupId>
+			<artifactId>mule-file-connector</artifactId>
+			<version>1.3.2</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>

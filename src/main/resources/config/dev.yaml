@@ -1,16 +1,10 @@
-scheduler:
-    frequency: "5"
-    delay: "0" 
+http:
+  host: "localhost"
+  port: "8081"
   
+file:
+   workingDirectory: C:\Users\golimneeraja\Downloads
+   path: C:\Users\golimneeraja\Downloads\empdetails1.csv
+        
 api:
-  path: "/testnew"  
-  
-salesforce:
-    userName: "neerumulesoft@gmail.com" 
-    securityToken: "XgjMK5xZUxl32i450XtyQ76jf"
-    url: "https://login.salesforce.com/services/Soap/u/54.0"
-    
-env:
-  "dev"    
-    
-  
+  path: "/testing"    
