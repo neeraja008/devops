@@ -36,7 +36,9 @@
                                    <username>golim008</username>
                                     <password>Keerthi@008</password>
                                    <applicationName>affirm-in-sf-sapp</applicationName>
-                                <environment>Sandbox</environment>         
+                                   <businessGroup>apisero</businessGroup>
+                                <environment>Sandbox</environment> 
+                                <workers>1</workers>        
                                 <workerType>Micro</workerType>  
                                 <objectStoreV2>true</objectStoreV2>                                                                                              
                         </cloudHubDeployment>
