@@ -39,7 +39,7 @@
                                    <applicationName>affirm-in-cicd-sapp</applicationName>
                                    <businessGroup>apisero</businessGroup>
                                 <environment>dev</environment> 
-                                <workers>0.1</workers>        
+                                <workers>1</workers>        
                                 <workerType>micro</workerType>  
                                 <objectStoreV2>true</objectStoreV2>                                                                                              
                         </cloudHubDeployment>
