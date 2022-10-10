@@ -38,7 +38,7 @@
                                     <password>Keerthi@008</password>
                                    <applicationName>affirm-in-cicd-sapp</applicationName>
                                    <businessGroup>apisero</businessGroup>
-                                <environment>dev</environment> 
+                                <environment>sandbox</environment> 
                                 <workers>1</workers>        
                                 <workerType>micro</workerType>  
                                 <objectStoreV2>true</objectStoreV2>                                                                                              
