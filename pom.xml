@@ -33,14 +33,14 @@
 <configuration>
                        <cloudHubDeployment>
                                 <uri>https://anypoint.mulesoft.com</uri>
-                                 <muleVersion>${mule.version}</muleVersion>
-                                   <username>${username}</username>
-                                    <password>${password}</password>
-                                   <applicationName>${appname}</applicationName>
-                                   <businessGroup>${business}</businessGroup>
-                                <environment>${environment}</environment> 
-                                <workers>${workers}</workers>        
-                                <workerType>${vCore}</workerType>  
+                                 <muleVersion>4.3.0</muleVersion>
+                                   <username>golim009</username>
+                                    <password>Keerthi@008</password>
+                                   <applicationName>affirm-in-cicd-sapp</applicationName>
+                                   <businessGroup>apisero</businessGroup>
+                                <environment>dev</environment> 
+                                <workers>0.1vcore</workers>        
+                                <workerType>micro</workerType>  
                                 <objectStoreV2>true</objectStoreV2>                                                                                              
                         </cloudHubDeployment>
                      </configuration>
